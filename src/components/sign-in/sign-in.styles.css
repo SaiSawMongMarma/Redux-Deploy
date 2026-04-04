@@ -1,5 +1,5 @@
 .sign-in {
-    width: 30vw;
+    width: 35vw;
     display: flex;
     flex-direction: column;
 
@@ -9,4 +9,9 @@
     margin: 10px 0;
 }
 
-/* //30% of the total view. */  
+.sign-in .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* //35% of the total view. */  
