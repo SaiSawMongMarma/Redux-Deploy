@@ -1,5 +1,6 @@
 .sign-in {
-    width: 35vw;
+    /* width: 35vw; */
+    width: 480px;
     display: flex;
     flex-direction: column;
 

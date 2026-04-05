@@ -11,7 +11,7 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import Header from './components/header/header.component.jsx';
 //place that header outside of the Routes
 
-import { auth } from './firebase/firebase.utils.js';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils.js';
 
 class App extends React.Component {
   constructor() {
@@ -22,12 +22,15 @@ class App extends React.Component {
     }
   }
 
+  unsubscribeFromAuth = null;
+
   //to fetch data sign in and sign out
   componentDidMount() {
-    auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+      // this.setState({ currentUser: user });
+      createUserProfileDocument(user);
 
-      console.log(user);
+      // console.log(firestore.doc('users/1234567890'));
     });
   }
   
